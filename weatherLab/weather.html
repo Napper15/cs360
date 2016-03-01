@@ -49,7 +49,30 @@
         }
       });
     });
+
+   $("#otherAPI").click(function(e){
+    e.preventDefault();
+      var value = $("#movieSearch").val();
+     var myurl= "https://api.themoviedb.org/3/search/movie?query=" + value + "&api_key=acb3c305305b76f8de87d3adbc8a5d18";
+      console.log(myurl);
+      $.ajax({
+        url : myurl,
+        dataType : "jsonp",
+        success : function(parsed_json) {
+          var res = parsed_json['results'];
+          everything = "<ul>";
+          for(var i = 0;i < res.length;i++){
+            everything += "<li>Title: " + res[i]['title'];
+            everything += "<li>Description: " + res[i]['overview'];
+          }
+          everything += "</ul>";
+          $("#movieDIV").html(everything);
+        }
+      });
+    });
   });
+
+
 </script>
 </head>
 <body>
@@ -62,6 +85,9 @@ Suggestion: <span id="txtHint">Empty</span>
 <textarea id="dispcity">No City</textarea>
 <p>Current Weather</p>
 <div id="weather">No weather</div>
-
+<h1>Search for movie Description</h1>
+<input style="margin-top: 20px;" id="movieSearch"></input>
+<button id="otherAPI">Search Movies</button>
+<div id="movieDIV"></div>
 </body>
 </html>
