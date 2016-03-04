@@ -1,0 +1,131 @@
+
+<html>
+<head>
+<title>City Finder</title>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+  $(document).ready(function() {
+    $( "#cityfield" ).keyup(function(e) {
+      var city = $('#cityfield').val();
+      if(city == ""){
+	$("#weather").clear();
+      return;}
+      $.getJSON("../getcity?q=" + city,function(data) {
+        var everything;
+        everything = "<ul>";
+        $.each(data, function(i,item) {
+          everything += "<li> "+data[i].city;
+        })
+        everything += "</ul>";
+        $("#txtHint").html(everything);
+      })
+      .done(function() { console.log('getJSON request succeeded!'); })
+      .fail(function(jqXHR, textStatus, errorThrown) { 
+        console.log('getJSON request failed! ' + textStatus); 
+        console.log("incoming "+jqXHR.responseText);
+      })
+      .always(function() { console.log('getJSON request ended!');})
+      .complete(function() { console.log("complete"); });
+    });
+
+   $("#button").click(function(e){
+    var value = $("#cityfield").val();
+    $("#dispcity").text(value);
+    e.preventDefault();
+     var myurl= "https://api.wunderground.com/api/c2a2a41457e6dce6/geolookup/conditions/q/UT/";
+      myurl += value;
+      myurl += ".json";
+      console.log(myurl);
+      $.ajax({
+        url : myurl,
+        dataType : "jsonp",
+        success : function(parsed_json) {
+          var location = parsed_json['location']['city'];
+          var temp_string = parsed_json['current_observation']['temperature_string'];
+          var current_weather = parsed_json['current_observation']['weather'];
+          everything = "<ul>";
+          everything += "<li>Location: "+location;
+          everything += "<li>Temperature: "+temp_string;
+          everything += "<li>Weather: "+current_weather;
+          everything += "</ul>";
+          $("#weather").html(everything);
+        }
+      });
+    });
+
+    $("#reverseString").click(function(e){
+	e.preventDefault();
+	var myurl = "../reverse/string?string=";
+	var word = $("#stringField").val();
+	myurl += word;
+	console.log(myurl);
+	$.ajax({
+	  type: 'GET',
+	  url : myurl,
+	  contentType: 'application/json',
+	  success : function(data) {
+		console.log(data);
+		$('#resultString').text(data['string']);
+	  }
+	});	
+    });
+
+    $('#reverseWord').click(function(e){
+	e.preventDefault();
+	var myurl = "../reverse/word?word=";
+	var word = $('#stringField').val();
+	myurl += word;
+	console.log("the URL is " + myurl);
+	$.ajax({
+	  type: 'GET',
+	  url : myurl,
+	  contentType: 'application/json',
+	  success : function(data){
+		console.log(data);
+		$('#resultString').text(data['string']);
+	  }
+	});
+    });
+
+ //   $('#getVowelCount').click(function(e){
+//	e.preventDefault();
+//	var myurl = "../count?string=";
+//	var word = $('#stringField').val();
+//	myurl += word;
+//	console.log("the URL is " + myurl);
+//	$.ajax({
+//	  type: 'GET',
+//	  url : myurl,
+//	  contentType: 'application/json',
+//	  success : function(data){
+//		console.log(data);
+//		$('#resultString').text(data);
+//	  }
+//	});
+//    });
+});
+
+</script>
+</head>
+<body>
+<form>
+Enter A Utah City: <input type="text" id="cityfield" value=""><br>
+Suggestion: <span id="txtHint">Empty</span>
+<input id="button" type="submit" value="Submit">
+</form>
+<p>City</p>
+<textarea id="dispcity">No City</textarea>
+<p>Current Weather</p>
+<div id="weather">No weather</div>
+<h2>Additional API Implemented</h2>
+<div>
+  <form>
+    Enter a word:<input type="text" id="stringField" value=""><br>
+    <input id="reverseString" type="submit" value="Reverse word order">
+    <input id="reverseWord" type="submit" value="Reverse characters">
+   <!-- <input id="getVowelCount" type="submit" value="getVowelCount">-->
+  </form>
+Result: <textarea id="resultString"></textarea>
+</div>
+</body>
+</html>
