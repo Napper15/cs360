@@ -1,0 +1,48 @@
+[0mGET / [36m304 [0m242.825 ms - -[0m
+[0mGET /favicon.ico [31m500 [0m281.916 ms - 1354[0m
+[0mGET / [36m304 [0m1.225 ms - -[0m
+[0mGET /favicon.ico [31m500 [0m2.135 ms - 1354[0m
+[0mGET / [36m304 [0m0.519 ms - -[0m
+[0mGET /favicon.ico [31m500 [0m41.284 ms - 1354[0m
+[0mGET /getcity?q=P [36m304 [0m40.683 ms - -[0m
+[0mGET /getcity?q=P [36m304 [0m1.253 ms - -[0m
+[0mGET /getcity?q=Pr [36m304 [0m2.201 ms - -[0m
+[0mGET /getcity?q=Pro [36m304 [0m1.180 ms - -[0m
+[0mGET /getcity?q=Prov [36m304 [0m0.801 ms - -[0m
+[0mGET /getcity?q=Provo [36m304 [0m1.070 ms - -[0m
+[0mGET /getcity?q=O [36m304 [0m1.018 ms - -[0m
+[0mGET /getcity?q=O [36m304 [0m1.490 ms - -[0m
+[0mGET /getcity?q=Or [36m304 [0m0.792 ms - -[0m
+[0mGET /getcity?q=Ore [36m304 [0m0.786 ms - -[0m
+[0mGET /getcity?q=Or [36m304 [0m1.094 ms - -[0m
+[0mGET /getcity?q=O [36m304 [0m1.041 ms - -[0m
+[0mGET /favicon.ico [31m500 [0m1.422 ms - 1354[0m
+[0mGET /favicon.ico [31m500 [0m1.121 ms - 1354[0m
+[0mGET / [32m200 [0m3.062 ms - 3775[0m
+[0mGET /favicon.ico [31m500 [0m1.026 ms - 1354[0m
+[0mGET /favicon.ico [31m500 [0m1.494 ms - 1354[0m
+[0mGET /favicon.ico [31m500 [0m1.672 ms - 1354[0m
+[0mGET / [32m200 [0m81.861 ms - 3775[0m
+[0mGET /favicon.ico [31m500 [0m0.940 ms - 1354[0m
+[0mGET / [32m200 [0m1.040 ms - 3775[0m
+[0mGET /favicon.ico [31m500 [0m1.369 ms - 1354[0m
+[0mGET / [32m200 [0m0.783 ms - 3775[0m
+[0mGET /favicon.ico [31m500 [0m1.654 ms - 1354[0m
+[0mGET / [32m200 [0m3.206 ms - 3775[0m
+[0mGET /favicon.ico [31m500 [0m1.817 ms - 1354[0m
+[0mGET /getcity?q=P [32m200 [0m1.705 ms - 304[0m
+[0mGET /getcity?q=P [36m304 [0m0.736 ms - -[0m
+[0mGET /getcity?q=Pr [32m200 [0m0.667 ms - 57[0m
+[0mGET /getcity?q=Pro [32m200 [0m0.678 ms - 40[0m
+[0mGET /getcity?q=Provo [32m200 [0m0.687 ms - 18[0m
+[0mGET /getcity?q=Provo [36m304 [0m0.665 ms - -[0m
+Dog
+{ string: 'Dog ' }
+[0mGET /reverse/string?string=Dog [32m200 [0m81.082 ms - 17[0m
+Dog
+{ string: 'goD' }
+[0mGET /reverse/word?word=Dog [32m200 [0m2.533 ms - 16[0m
+[0mGET / [32m200 [0m0.742 ms - 3775[0m
+[0mGET /favicon.ico [31m500 [0m2.077 ms - 1354[0m
+[0mPOST /comment [33m404 [0m30.537 ms - 1216[0m
+[0mGET /favicon.ico [31m500 [0m1.078 ms - 1354[0m

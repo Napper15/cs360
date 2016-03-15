@@ -30,19 +30,65 @@ router.get('/getcity',function(req,res,next) {
 router.get('/:file',function(req,res,next){
 
 	var file = req.params.file;
-//	var options = {
-//	  root: __dirname + '/public/',
-//	  dotfiles: 'deny',
-//	  headers: {
-//	    'x-timestamp': Date.now(),
-//	    'x-sent': true
-//	  }
-//	};
 	res.sendFile(file);//,options,funnction(err){
-//		if(err){
-//			res.status(err.status).end();
-//		}
-//	});
+});
+
+router.get('/reverse/string',function(req,res,next){
+
+	console.log(req.query.string);
+	var str = req.query.string;
+	var split = str.split(" ");
+	split.reverse();
+	var resultStr = "";
+	for(var i = 0;i<split.length;i++){
+		resultStr += split[i] + " ";
+	}
+	var result = {"string":resultStr};
+	console.log(result);
+res.status(200).json(result);
+//	res.setHeader(200, {"Content-Type": "application/json"});
+//	res.json(result);
+});
+
+router.get('/reverse/word',function(req,res,next){
+
+	console.log(req.query.word);
+        var str = req.query.word;
+        var split = str.split("");
+        split.reverse();
+        var resultStr = "";
+        for(var i = 0;i<split.length;i++){
+                resultStr += split[i];
+        }
+        var result = {"string":resultStr};
+	console.log(result);
+        res.status(200).json(result);
+
+});
+
+router.get('/count',function(req,res,next){
+
+	console.log(req.query.string);
+        var str = req.query.string;
+        var split = str.split("");
+        split.reverse();
+	var vowel = 0;
+	var cons = 0;
+        var resultStr = "";
+        for(var i = 0;i<split.length;i++){
+                if(split[i] === 'a' || split [i] === 'e' || split[i] === 'i' ||
+			split[i] === 'o' || split[i] === 'u' || split[i] === 'A' ||
+			split[i] === 'E' || split[i] === 'I' || split[i] === 'O' ||
+			split[i] === 'U'){
+			vowel++;
+		} else {
+			cons++;
+		}
+        }
+        var result = {"length":split.length,"vowel":vowel,"cons":cons};
+	console.log(result);
+        res.status(200).json(result);
+
 });
 
 module.exports = router;

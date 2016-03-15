@@ -52,7 +52,58 @@
         }
       });
     });
-  });
+
+    $("#reverseString").click(function(e){
+	e.preventDefault();
+	var myurl = "../reverse/string?string=";
+	var word = $("#stringField").val();
+	myurl += word;
+	console.log(myurl);
+	$.ajax({
+	  type: 'GET',
+	  url : myurl,
+	  contentType: 'application/json',
+	  success : function(data) {
+		console.log(data);
+		$('#resultString').text(data['string']);
+	  }
+	});	
+    });
+
+    $('#reverseWord').click(function(e){
+	e.preventDefault();
+	var myurl = "../reverse/word?word=";
+	var word = $('#stringField').val();
+	myurl += word;
+	console.log("the URL is " + myurl);
+	$.ajax({
+	  type: 'GET',
+	  url : myurl,
+	  contentType: 'application/json',
+	  success : function(data){
+		console.log(data);
+		$('#resultString').text(data['string']);
+	  }
+	});
+    });
+
+ //   $('#getVowelCount').click(function(e){
+//	e.preventDefault();
+//	var myurl = "../count?string=";
+//	var word = $('#stringField').val();
+//	myurl += word;
+//	console.log("the URL is " + myurl);
+//	$.ajax({
+//	  type: 'GET',
+//	  url : myurl,
+//	  contentType: 'application/json',
+//	  success : function(data){
+//		console.log(data);
+//		$('#resultString').text(data);
+//	  }
+//	});
+//    });
+});
 
 </script>
 </head>
@@ -66,6 +117,15 @@ Suggestion: <span id="txtHint">Empty</span>
 <textarea id="dispcity">No City</textarea>
 <p>Current Weather</p>
 <div id="weather">No weather</div>
-
+<h2>Additional API Implemented</h2>
+<div>
+  <form>
+    Enter a word:<input type="text" id="stringField" value=""><br>
+    <input id="reverseString" type="submit" value="Reverse word order">
+    <input id="reverseWord" type="submit" value="Reverse characters">
+   <!-- <input id="getVowelCount" type="submit" value="getVowelCount">-->
+  </form>
+Result: <textarea id="resultString"></textarea>
+</div>
 </body>
 </html>
