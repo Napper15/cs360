@@ -46,3 +46,4 @@ Dog
 [0mGET /favicon.ico [31m500 [0m2.077 ms - 1354[0m
 [0mPOST /comment [33m404 [0m30.537 ms - 1216[0m
 [0mGET /favicon.ico [31m500 [0m1.078 ms - 1354[0m
+[0mPOST /comments [33m404 [0m1.779 ms - 1216[0m
